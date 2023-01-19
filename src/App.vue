@@ -1,48 +1,21 @@
 <script>
-import axios from 'axios'
+import ProjectCard from './components/ProjectCard.vue'
+import NavBar from './components/NavBar.vue'
 
 export default {
     components: {
 
+        ProjectCard,
+        NavBar,
     },
-    data() {
-        return {
-            projects: null,
-            base_api_url: 'http://localhost:8000',
-            error: null,
-        }
-    },
-    methods: {
-        getProject(url) {
-            axios
-                .get(url)
-                .then(response => {
-                    console.log(response.data.results);
-                    this.projects = response.data.results;
 
-                })
-                .catch(error => {
-                    console.error(error)
-                    this.error = error.message
-
-                })
-        }
-
-    },
-    mounted() {
-        this.getProject(this.base_api_url + '/api/projects')
-    }
 }
 </script>
 
 <template>
-    <section class="vue-home">
-        <div class="container">
-            <div class="row">
-                <h1>Projects</h1>
-            </div>
-        </div>
-    </section>
+
+    <NavBar></NavBar>
+    <ProjectCard></ProjectCard>
 </template>
 
 <style lang="scss">
