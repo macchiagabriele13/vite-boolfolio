@@ -1,9 +1,36 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
     components: {
-        HelloWorld,
+
+    },
+    data() {
+        return {
+            projects: null,
+            base_api_url: 'http://localhost:8000',
+            error: null,
+        }
+    },
+    methods: {
+        getProject(url) {
+            axios
+                .get(url)
+                .then(response => {
+                    console.log(response.data.results);
+                    this.projects = response.data.results;
+
+                })
+                .catch(error => {
+                    console.error(error)
+                    this.error = error.message
+
+                })
+        }
+
+    },
+    mounted() {
+        this.getProject(this.base_api_url + '/api/projects')
     }
 }
 </script>
@@ -12,17 +39,7 @@ export default {
     <section class="vue-home">
         <div class="container">
             <div class="row">
-                <div class="col-12 d-flex flex-column justify-content-center align-items-center vh-100">
-                    <div class="logos">
-                        <a href="https://vitejs.dev" target="_blank">
-                            <img src="/vite.svg" class="logo" alt="Vite logo" />
-                        </a>
-                        <a href="https://vuejs.org/" target="_blank">
-                            <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-                        </a>
-                    </div>
-                    <HelloWorld />
-                </div>
+                <h1>Projects</h1>
             </div>
         </div>
     </section>
