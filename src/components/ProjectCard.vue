@@ -5,6 +5,22 @@ export default {
     name: 'ProjectCard',
     props: {
         project: Object
+    },
+    data() {
+        return {
+
+            base_api_url: 'http://localhost:8000',
+
+        }
+    },
+    methods: {
+        getImagePath(path) {
+            console.log(path);
+            if (path) {
+                return this.base_api_url + '/storage/' + path
+            }
+            return '/img/bohgabbo-min.png'
+        },
     }
 
 }
@@ -19,7 +35,7 @@ export default {
 
     <div class="col">
         <div class="card border-0 shadow-sm rounded-0 rounded-bottom">
-            <!-- <img class="card-image rounded-top" :src="getImagePath(project.cover_image)" alt=""> -->
+            <img class="card-image rounded-top" :src="getImagePath(project.cover_image)" alt="">
             <div class="card-body">
                 <h4>{{ project.title }}</h4>
                 <p>

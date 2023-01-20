@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios'
-import ProjectCard from './components/ProjectCard.vue'
+import ProjectCard from './ProjectCard.vue'
 
 export default {
     components: {
@@ -10,9 +10,10 @@ export default {
     name: 'ProjectList',
     data() {
         return {
-            projects: null,
+            projects: [],
             base_api_url: 'http://localhost:8000',
             error: null,
+            loading: true,
         }
     },
     methods: {
@@ -20,9 +21,9 @@ export default {
             axios
                 .get(url)
                 .then(response => {
-                    console.log(response.data.results);
+                    console.log('aaaa', response.data.results);
                     this.projects = response.data.results;
-
+                    this.loading = false
                 })
                 .catch(error => {
                     console.error(error)
@@ -39,11 +40,11 @@ export default {
         },
         prevPage(url) {
             console.log(url)
-            this.getPosts(url)
+            this.getProject(url)
         },
         nextPage(url) {
             console.log(url)
-            this.getPosts(url)
+            this.getProject(url)
         }
 
     },
@@ -56,12 +57,12 @@ export default {
 <template>
     <section class="vue-home pt-5">
         <div class="container">
-            <template v-if="projects">
+            <div v-if="projects && !loading">
                 <div class="row row-cols-1 row-cols-sm-3 g-4">
 
 
 
-                    <ProjectCard :project="project" v-for="project in projects"></ProjectCard>
+                    <ProjectCard :project="project" v-for="project in projects.data"></ProjectCard>
 
 
 
@@ -85,7 +86,7 @@ export default {
                     </ul>
                 </nav>
 
-            </template>
+            </div>
             <div v-else>
                 <p> No posts here </p>
             </div>
