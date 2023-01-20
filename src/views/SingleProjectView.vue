@@ -15,7 +15,7 @@ export default {
         axios.get(url)
             .then(response => {
                 if (response.data.success) {
-                    this.post = response.data.results
+                    this.project = response.data.results
                     this.loading = false
                 } else {
 
@@ -31,7 +31,7 @@ export default {
 
 <template>
 
-    <div class="single-post" v-if="projects">
+    <div class="single-project" v-if="project">
         <img class="img-fluid w-100" :src="api_base_url + '/storage/' + project.cover_image" :alt="project.title">
         <div class="container">
             <h2>
