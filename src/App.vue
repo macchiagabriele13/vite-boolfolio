@@ -7,21 +7,14 @@ export default {
 
         NavBar,
     },
-    data() {
-        return {
-            item: {
-                name: "Item",
-                message: "ciao"
-            }
-        }
-    }
+
 
 }
 </script>
 
 <template>
 
-    <NavBar :item="item"></NavBar>
+    <NavBar></NavBar>
     <router-view></router-view>
 </template>
 

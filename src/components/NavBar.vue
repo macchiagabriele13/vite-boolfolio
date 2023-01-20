@@ -1,9 +1,7 @@
 <script>
 export default {
     name: 'NavBar',
-    props: {
-        item: Object
-    }
+
 }
 </script>
 
@@ -23,7 +21,7 @@ export default {
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                aria-expanded="false">{{ item.message }}</a>
+                aria-expanded="false"></a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#tab2Id">Action</a>
                 <a class="dropdown-item" href="#tab3Id">Another action</a>
