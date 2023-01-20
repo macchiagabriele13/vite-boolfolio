@@ -1,11 +1,10 @@
 <script>
-import ProjectCard from './components/ProjectCard.vue'
+
 import NavBar from './components/NavBar.vue'
 
 export default {
     components: {
 
-        ProjectCard,
         NavBar,
     },
 
@@ -15,7 +14,7 @@ export default {
 <template>
 
     <NavBar></NavBar>
-    <ProjectCard></ProjectCard>
+    <router-view></router-view>
 </template>
 
 <style lang="scss">
