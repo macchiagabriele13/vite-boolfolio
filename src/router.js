@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory } from vue - router
-import HomeView from './views/HomeView'
-import ProjectView from '.views/ProjectView'
-import ContactsView from '.views/ContactsView'
-import SingleProjectView from '.views/SingleProjectView'
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from './views/HomeView.vue'
+import ProjectView from './views/ProjectView.vue'
+import ContactsView from './views/ContactsView.vue'
+import SingleProjectView from './views/SingleProjectView.vue'
 
 const router = createRouter({
     history: createWebHistory(),

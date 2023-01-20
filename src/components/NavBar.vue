@@ -1,6 +1,9 @@
 <script>
 export default {
-    name: 'NavBar'
+    name: 'NavBar',
+    props: {
+        item: Object
+    }
 }
 </script>
 
@@ -9,11 +12,18 @@ export default {
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" id="navId" role="tablist">
         <li class="nav-item">
-            <a href="#tab1Id" class="nav-link active" data-bs-toggle="tab" aria-current="page">Active</a>
+            <router-link :to="{ name: 'home' }"> Home </router-link>
         </li>
+        <li class="nav-item">
+            <router-link :to="{ name: 'project' }"> Project </router-link>
+        </li>
+        <li class="nav-item">
+            <router-link :to="{ name: 'contacts' }"> Contacts </router-link>
+        </li>
+
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                aria-expanded="false">Dropdown</a>
+                aria-expanded="false">{{ item.message }}</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#tab2Id">Action</a>
                 <a class="dropdown-item" href="#tab3Id">Another action</a>

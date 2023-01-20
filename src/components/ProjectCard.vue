@@ -65,7 +65,8 @@ export default {
                                 <p>
                                     {{ project.difficulty }}
                                 </p>
-                                <a href="#">Read more</a>
+                                <router-link :to="{ name: 'single-project', params: { slug: project.slug } }">Read
+                                    More</router-link>
                             </div>
                             <div class="card-footer text-muted">
                                 <div class="type">
