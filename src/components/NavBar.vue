@@ -7,49 +7,52 @@ export default {
 
 <template>
 
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" id="navId" role="tablist">
-        <li class="nav-item">
-            <router-link :to="{ name: 'home' }"> Home </router-link>
-        </li>
-        <li class="nav-item">
-            <router-link :to="{ name: 'project' }"> Project </router-link>
-        </li>
-        <li class="nav-item">
-            <router-link :to="{ name: 'contacts' }"> Contacts </router-link>
-        </li>
+    <nav class="d-flex justify-content-between">
+        <div class="logo">
+            <img class="h-100" src="/img/GM.png" alt="">
+        </div>
 
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                aria-expanded="false"></a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#tab2Id">Action</a>
-                <a class="dropdown-item" href="#tab3Id">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#tab4Id">Action</a>
-            </div>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a href="#tab5Id" class="nav-link" data-bs-toggle="tab">Another link</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a href="#" class="nav-link disabled" data-bs-toggle="tab">Disabled</a>
-        </li>
-    </ul>
+        <!-- Nav tabs -->
+        <ul class="nav" id="navId" role="nav">
+            <li class="nav-item px-3">
+                <router-link class="text-decoration-none text-white" :to="{ name: 'home' }"> Home </router-link>
+            </li>
+            <li class="nav-item px-3">
+                <router-link class="text-decoration-none text-white" :to="{ name: 'project' }"> Project </router-link>
+            </li>
+            <li class="nav-item px-3">
+                <router-link class="text-decoration-none text-white" :to="{ name: 'contacts' }"> Contacts </router-link>
+            </li>
+        </ul>
+    </nav>
 
-    <!-- Tab panes -->
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
-        <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
-        <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
-        <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
-        <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
-    </div>
+
+
 
 
 
 </template>
 
 <style lang="scss" scoped>
+.logo {
+    padding: 0 !important;
+}
 
+nav {
+    background-color: black;
+}
+
+router-link {
+    color: white;
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: blue !important;
+}
+
+ul {
+    align-content: center;
+}
 </style>

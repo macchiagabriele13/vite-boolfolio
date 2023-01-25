@@ -32,8 +32,9 @@ export default {
 <template>
 
     <div class="single-project" v-if="project">
-        <img width="100" height="100" class="img-fluid " :src="api_base_url + '/storage/' + project.cover_image"
-            :alt="project.title">
+        <img v-if="project.cover_image" width="100" height="100" class="img-fluid "
+            :src="api_base_url + '/storage/' + project.cover_image" :alt="project.title">
+        <img v-else src="/img/bohgabbo-min.png" alt="">
         <div class="container">
             <h2>
                 {{ project.title }}

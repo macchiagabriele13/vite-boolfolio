@@ -21,7 +21,7 @@ export default {
             axios
                 .get(url)
                 .then(response => {
-                    console.log('aaaa', response.data.results);
+                    console.log(response.data.results);
                     this.projects = response.data.results;
                     this.loading = false
                 })

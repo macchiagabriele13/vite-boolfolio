@@ -16,6 +16,7 @@ export default {
 
     <NavBar></NavBar>
     <router-view></router-view>
+
 </template>
 
 <style lang="scss">
